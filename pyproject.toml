@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "supervisor-cfg"
+description = 'Add commands to change config values to the supervisor xmlrpc interface.'
+readme = "README.md"
+requires-python = ">=3.7"
+license = "MIT"
+keywords = ["supervisor"]
+authors = [
+  { name = "cbadger", email = "" },
+]
+dependencies = ["supervisor"]
+dynamic = ["version"]
+
+[project.urls]
+Documentation = "https://github.com/fkr-0/supervisor-cfg#readme"
+Issues = "https://github.com/fkr-0/supervisor-cfg/issues"
+Source = "https://github.com/fkr-0/supervisor-cfg"
+
+[tool.hatch.version]
+path = "supervisor_cfg/__about__.py"
+
+[tool.hatch.envs.default]
+dependencies = [
+  "pytest",
+  "pytest-cov",
+  "pip-tools",
+  "pre-commit"
+]
+[tool.hatch.envs.default.scripts]
+cov = "pytest --cov-report=term-missing --cov-config=pyproject.toml --cov=supervisor_cfg --cov=tests"
+no-cov = "cov --no-cov"
+
+[[tool.hatch.envs.test.matrix]]
+python = ["37", "38", "39", "310", "311"]
+
+[tool.coverage.run]
+branch = true
+parallel = true
+omit = [
+  "supervisor_cfg/__about__.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
