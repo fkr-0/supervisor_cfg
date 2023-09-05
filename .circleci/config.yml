@@ -1,7 +1,7 @@
 version: 2.1
 
 aliases:
-  - filter-master:
+  - &filter-master
     branches:
       only: master
 
@@ -79,22 +79,23 @@ jobs:
             git config user.email "ci-build@fkr-0.github.io"
             git config user.name "ci-build"
       - add_ssh_keys:
-          fingerprints: 73:ce:3d:83:5c:46:76:62:60:f8:22:9e:56:ee:97:1b
+          fingerprints:
+            - "73:ce:3d:83:5c:46:76:62:60:f8:22:9e:56:ee:97:1b"
       - run:
           name: Deploy docs to gh-pages branch
           command: gh-pages --dotfiles --message "[skip ci] Updates" --dist site
 workflows:
   version: 2
-  test:
+  test-f:
     jobs:
       - test:
-          filters: filter-master
+          filters: *filter-master
 
-  build-docs:
+  build-docs-f:
     jobs:
       - build-docs:
-          filters: filter-master
+          filters: *filter-master
       - deploy-docs:
           requires:
             - build-docs
-          filters: filter-master
+          filters: *filter-master
