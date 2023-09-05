@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
+from importlib.util import find_spec
+
 try:
-    from .rpcinterface import *
+    find_spec("supervisor_cfg.rpcinterface")
 except ImportError:
-    from rpcinterface import *
+    pass
