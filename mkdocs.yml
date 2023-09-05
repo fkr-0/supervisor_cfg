@@ -1,0 +1,57 @@
+site_name: supervisor-cfg
+site_description: Supervisor plugin to manipulate its config file(s).
+
+repo_url: https://github.com/cbadger/supervisor-cfg
+repo_name: cbadger/supervisor-cfg
+
+theme:
+  name: material
+  icon:
+    logo: material/library
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          import:
+            - https://docs.python.org/3.11/objects.inv
+          options:
+            docstring_style: google
+
+watch:
+  - docs
+  - supervisor_cfg
+
+nav:
+  - About: index.md
+  - Reference: rpcinterface_reference.md
