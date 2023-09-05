@@ -4,6 +4,9 @@ aliases:
   - &filter-master
     branches:
       only: master
+    
+orbs:
+  python: circleci/python@2.1.1
 
 jobs:
   test:
@@ -23,8 +26,6 @@ jobs:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
           command: hatch run test
-
-      - image: circleci/golang:1.14-node
   build_dist:
     docker:
       - image: cimg/python:3.10.2
