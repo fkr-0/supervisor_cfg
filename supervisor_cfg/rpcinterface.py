@@ -326,3 +326,6 @@ class CfgNamespaceRPCInterface:
         """
         self._update("set_config")
         return self._set_config(config)
+
+def make_cfg_rpcinterface(supervisord, **config):
+    return CfgNamespaceRPCInterface(supervisord, **config)
