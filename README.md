@@ -1,4 +1,5 @@
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/fkr-0/supervisor_cfg/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/fkr-0/supervisor_cfg/tree/master)
+[![Docs]Docs](https://fkr-0.github.io/supervisor_cfg/)
 
 # supervisor-cfg
 
@@ -20,7 +21,7 @@ functionalities for persistent manipulation of Supervisor's configuration file u
 supervisors xml-rpc interface. The design of this project is closely following the
 design of the [supervisor_twiddler
 plugin](https://github.com/mnaberez/supervisor_twiddler).
-[~~Docs.~~](https://fkr-0.github.io/supervisor-cfg/)
+[Docs.](https://fkr-0.github.io/supervisor_cfg/)
 
 ## Todo
 

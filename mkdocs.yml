@@ -1,8 +1,8 @@
-site_name: supervisor-cfg
+site_name: supervisor_cfg
 site_description: Supervisor plugin to manipulate its config file(s).
 
-repo_url: https://github.com/cbadger/supervisor-cfg
-repo_name: cbadger/supervisor-cfg
+repo_url: https://github.com/fkr-0/supervisor_cfg
+repo_name: fkr-0/supervisor_cfg
 
 theme:
   name: material
